@@ -1,0 +1,8 @@
+.classpath
+bin/
+temp/
+.DS_Store
+copy/
+.settings
+/build/
+MANIFEST.MF
