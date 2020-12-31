@@ -27,7 +27,7 @@
         <tr>
             <td>
                 <input type="submit" value="logout" onclick="location.href='member.do?command=logout'">
-                <input type="button" value="modify" onclick="location.href='member.do?command=update_form&userid=${loginUser.userid}'">
+                <input type="button" value="modify" onclick="location.href='member.do?command=update_form'">
                 <input type="button" value="quit" onclick="location.href='member.do?command=delete&userid=${loginUser.userid}'">
                 <c:if test="${loginUser.admin == 1}">
                     <input type="button" value="manage" onclick="location.href='member.do?command=select_all'">

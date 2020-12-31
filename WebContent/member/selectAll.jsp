@@ -35,7 +35,7 @@
 		</c:forEach>
 		<tr>
 			<td colspan="6" align="right">
-				<input type="button" onclick="location.href='member.do?command=login'" value="main">
+				<input type="button" onclick="location.href='member.do?command=login_form'" value="main">
 			</td>
 		</tr>
 	</table>

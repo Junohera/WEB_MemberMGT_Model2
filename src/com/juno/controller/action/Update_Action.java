@@ -24,9 +24,9 @@ public class Update_Action implements Action {
 		member.setPhone(request.getParameter("phone"));
 		member.setAdmin(Integer.parseInt(request.getParameter("admin")));
 
+		HttpSession session = request.getSession();
 		if (MemberDAO.getIst().updateMember(member) == 1) {
 			request.setAttribute("message", "update complete");
-			HttpSession session = request.getSession();
 			session.setAttribute("loginUser", member); // 세션 최신정보로 갱신
 		} else {
 			request.setAttribute("message", "update fail");

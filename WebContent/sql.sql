@@ -1,0 +1,36 @@
+-- DROP TABLE MEMBER PURGE;
+
+CREATE TABLE MEMBER
+(
+    NAME VARCHAR2(30),
+    USERID VARCHAR2(10),
+    PWD VARCHAR2(10),
+    EMAIL VARCHAR2(20),
+    PHONE VARCHAR2(15),
+    ADMIN NUMBER(1) DEFAULT 0, -- 0: 일반사용자, 1: 관리자
+    PRIMARY KEY(USERID)
+);
+
+INSERT INTO MEMBER VALUES('이소미', 'somi', '1234', 'gmd@anver.com', '010-1234-1234', 0);
+INSERT INTO MEMBER VALUES('하상오', 'sang12', '1234', 'h12@naver.com', '010-5555-6666', 0);
+INSERT INTO MEMBER VALUES('김빛나', 'light', '1234', 'yoon1@daum.net', '010-9999-1111', 1);
+
+SELECT * FROM MEMBER;
+SELECT
+    A.COLUMN_ID AS NO
+    , B.COMMENTS AS "논리명"
+    , A.COLUMN_NAME AS "물리명"
+    , A.DATA_TYPE AS "자료 형태"
+    , A.DATA_LENGTH AS "길이"
+    , DECODE(A.NULLABLE, 'N', 'No', 'Y', 'Yes') AS "Null 허용"
+    , '' AS "식별자"
+    , A.DATA_DEFAULT AS "기본값"
+    , B.COMMENTS AS "코멘트"
+FROM ALL_TAB_COLUMNS A
+    LEFT JOIN ALL_COL_COMMENTS B
+        ON A.OWNER = B.OWNER
+            AND A.TABLE_NAME = B.TABLE_NAME
+            AND A.COLUMN_NAME = B.COLUMN_NAME
+WHERE
+    A.TABLE_NAME LIKE 'MEMBER'
+ORDER BY A.COLUMN_ID;

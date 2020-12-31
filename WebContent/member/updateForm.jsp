@@ -7,6 +7,25 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<script>
+	function joinCheck() {
+		if (document.frm.name.value.length < 4) {
+			alert("name");
+			return false;
+		}
+		if (document.frm.pwd.value !== "") {
+			if (document.frm.pwd.value.length < 4) {
+				alert("pwd");
+				return false;
+			}
+			if (document.frm.pwd.value !== document.frm.pwd_check.value) {
+				alert("pwd diff");
+				return false;
+			}
+		}
+		return true;
+	};
+</script>
 <body>
 	<form action="member.do" method="POST" name="frm">
 	<input type="hidden" name="command" value="update">
@@ -72,12 +91,12 @@
 				</td>
 			</tr>
 			<tr>
-					<td colspan="2" align="center">
-						<input type="submit" value="send" onclick="return joinCheck();">&nbsp;&nbsp;
-						<input type="reset" value="cancel">&nbsp;&nbsp;
-						<input type="button" value="back" onclick="location.href='member.do?command=login_form'">
-					</td>
-			</	tr>
+				<td colspan="2" align="center">
+					<input type="submit" value="send" onclick="return joinCheck();">&nbsp;&nbsp;
+					<input type="reset" value="cancel">&nbsp;&nbsp;
+					<input type="button" value="back" onclick="location.href='member.do?command=login_form'">
+				</td>
+			</tr>
 		</table>
 	</form>
 </body>
